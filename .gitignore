@@ -4,3 +4,6 @@
 
 # RStudio files
 .Rproj.user
+
+# Annoying mac files
+.DS_Store
