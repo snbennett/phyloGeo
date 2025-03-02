@@ -4,6 +4,10 @@ S. Bennett's phyloGeo course GitHub.
 
 # Course Instructions: Phylogeographic Workshop Day 3 – Using Git, GitHub, R, and RStudio
 
+Pick your OS below and follow along to get your computer working for today's lesson. See the 'hint' at the bottom if you are having trouble. For Mac M1 or new (i.e. Mac - Silicon) scroll down, for PC's go [(Windows)] or scroll way down.
+
+# (Mac - Silicon)
+
 ## Step 1: Install Xcode
 
 Xcode is required for compiling and installing certain packages in R. To install Xcode:
@@ -122,4 +126,103 @@ If the Git process is too complicated for now, you can use this workaround:
 
 ### Why This Isn’t Best Practice
 
-This method works as a quick fix but lacks version control, documentation, and reproducibility. In your own time, try to get the **Git workflow** to work so you can track changes, collaborate efficiently, and manage your scripts properly.
+This method works as a quick fix but lacks version control, documentation, and reproducibility. In your own time, try to get the **Git workflow** to work so you can track changes, collaborate efficiently, and manage your scripts properly.\
+\
+
+# (Windows)
+
+## Step 1: Install Git for Windows
+
+1.  Download Git for Windows from [git-scm.com](https://git-scm.com/download/win).
+2.  Run the installer and select the following options:
+    -   **Use Git from the Windows Command Prompt**
+    -   **Use Windows’ default console window**
+    -   **Use credential helper: Manager**
+    -   Other default options are fine.
+3.  Verify installation:
+    -   Open **Command Prompt** or **Git Bash**.
+
+    -   Type:
+
+        ``` bash
+        git --version
+        ```
+
+    -   You should see a version number if Git installed correctly.
+
+------------------------------------------------------------------------
+
+## Step 2: Install R and RStudio
+
+1.  Download R from [CRAN R Project](https://cran.r-project.org/):
+    -   Select the **Windows** version and install it.
+2.  Download and install RStudio from [RStudio website](https://posit.co/download/rstudio-desktop/).
+3.  Verify installation:
+    -   Open RStudio and type:
+
+        ``` r
+        version
+        ```
+
+    -   You should see version details for R.
+
+------------------------------------------------------------------------
+
+## Step 3: Clone a Repository
+
+1.  Open **Git Bash** (or **Command Prompt** if Git is installed system-wide).
+
+2.  Navigate to your preferred directory:
+
+    ``` bash
+    cd C:/Users/YourUsername/Documents
+    ```
+
+3.  Clone the repository:
+
+    ``` bash
+    git clone https://github.com/ddkapan/phyloGeo
+    ```
+
+    *(this is the GitHub repo for the course)*
+
+4.  Navigate into the cloned repository:
+
+    ``` bash
+    cd phyloGeo
+    ```
+
+------------------------------------------------------------------------
+
+## Step 4: Open Repository in RStudio
+
+1.  Open RStudio.
+2.  Click **File \> Open Project...**.
+3.  Navigate to the folder where you cloned the repository and select the **.Rproj** file.
+4.  Run an R script:
+    -   Navigate to the **code** directory.
+    -   Open the `phylogenyExample_ape_phytools.R` script.
+    -   Run it interactively by pressing **Ctrl + Enter** on each line.
+
+------------------------------------------------------------------------
+
+## Step 5: Quick Hack if Git Is Too Complex
+
+If setting up Git is too complicated, use this workaround:
+
+1.  Go to the GitHub repository: [phyloGeo](https://github.com/ddkapan/phyloGeo).
+2.  Navigate to the **code** directory and find the script you want to run.
+3.  Click the script filename to open it.
+4.  Click the **Copy raw contents** button (clipboard icon) to copy the script.
+5.  In RStudio, create a new script: **File \> New File \> R Script**.
+6.  Paste the copied script into the new file.
+7.  Save the file with the correct name (e.g., `phylogenyExample_ape_phytools.R`).
+8.  Run it interactively by pressing **Ctrl + Enter** on each line.
+
+### Why This Isn’t Best Practice
+
+This method works as a quick fix but lacks version control, documentation, and reproducibility. Try to get the **Git workflow** working when you have time to ensure better collaboration and tracking of changes.
+
+------------------------------------------------------------------------
+
+These steps will set up your Windows PC for running R code efficiently. Let me know if you need modifications!
