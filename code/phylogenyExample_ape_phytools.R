@@ -1,3 +1,5 @@
+#phylogenyExample_ape_phytools.R
+
 # --- Load Required Packages ---
 # Install packages if necessary:
 if (!requireNamespace("ape", quietly = TRUE)) install.packages("ape")
@@ -50,3 +52,4 @@ edge_colors[tree$edge[,2] %in% desc2] <- "red"
 plot(tree, edge.color = edge_colors, edge.width = 2, cex = 1.2)
 # Add tip labels
 tiplabels(tree$tip.label, adj = c(0.5, -0.5), frame = "none", col = "black", cex = 1)
+
