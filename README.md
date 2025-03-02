@@ -4,7 +4,7 @@ S. Bennett's phyloGeo course GitHub.
 
 # Course Instructions: Phylogeographic Workshop Day 3 – Using Git, GitHub, R, and RStudio
 
-Pick your OS below and follow along to get your computer working for today's lesson. See the 'hint' at the bottom if you are having trouble. For Mac M1 or new (i.e. Mac - Silicon) scroll down, for PC's go [(Windows)] or scroll way down.
+Pick your OS below and follow along to get your computer working for today's lesson. See the 'hint' at the bottom if you are having trouble. For Mac M1 or new (i.e. Mac - Silicon) scroll down, for PC's go to [(Windows)](https://github.com/snbennett/phyloGeo/blob/main/README.md#windows) or scroll way down.
 
 # (Mac - Silicon)
 
@@ -126,8 +126,7 @@ If the Git process is too complicated for now, you can use this workaround:
 
 ### Why This Isn’t Best Practice
 
-This method works as a quick fix but lacks version control, documentation, and reproducibility. In your own time, try to get the **Git workflow** to work so you can track changes, collaborate efficiently, and manage your scripts properly.\
-\
+This method works as a quick fix but lacks version control, documentation, and reproducibility. In your own time, try to get the **Git workflow** to work so you can track changes, collaborate efficiently, and manage your scripts properly.
 
 # (Windows)
 
