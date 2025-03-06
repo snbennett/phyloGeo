@@ -88,7 +88,7 @@ To clone an existing repository from GitHub:
 2.  Clone the repository:
 
     ``` bash
-    git clone https://github.com/ddkapan/phyloGeo
+    git clone https://github.com/sbennett/phyloGeo
     ```
 
     *(this is the GitHub we put together for this week’s course)*
@@ -110,23 +110,6 @@ To clone an existing repository from GitHub:
     -   Navigate to the **code** directory.
     -   Open the `phylogenyExample_ape_phytools.R` script.
     -   Run it interactively by hitting **Cmd + Enter** on each line.
-
-## Step 6: Quick Hack if This is Too Complex
-
-If the Git process is too complicated for now, you can use this workaround:
-
-1.  Go to the GitHub repository: [phyloGeo](https://github.com/snbennett/phyloGeo).
-2.  Navigate to the **code** directory and locate the script you want to run.
-3.  Click on the script filename to open it.
-4.  Click the **Copy raw contents** button (clipboard icon) to copy the script.
-5.  In RStudio, create a new script: **File \> New File \> R Script**.
-6.  Paste the copied script into the new file.
-7.  Save the file with the correct name (e.g., `phylogenyExample_ape_phytools.R`).
-8.  Run it interactively by pressing **Cmd + Enter** on each line.
-
-### Why This Isn’t Best Practice
-
-This method works as a quick fix but lacks version control, documentation, and reproducibility. In your own time, try to get the **Git workflow** to work so you can track changes, collaborate efficiently, and manage your scripts properly.
 
 # (Windows)
 
@@ -180,7 +163,7 @@ This method works as a quick fix but lacks version control, documentation, and r
 3.  Clone the repository:
 
     ``` bash
-    git clone https://github.com/ddkapan/phyloGeo
+    git clone https://github.com/sbennett/phyloGeo
     ```
 
     *(this is the GitHub repo for the course)*
@@ -205,11 +188,11 @@ This method works as a quick fix but lacks version control, documentation, and r
 
 ------------------------------------------------------------------------
 
-## Step 5: Quick Hack if Git Is Too Complex
+## Quick Hack if Git Is Too Complex
 
 If setting up Git is too complicated, use this workaround:
 
-1.  Go to the GitHub repository: [phyloGeo](https://github.com/ddkapan/phyloGeo).
+1.  Go to the GitHub repository: [phyloGeo](https://github.com/snbennett/phyloGeo).
 2.  Navigate to the **code** directory and find the script you want to run.
 3.  Click the script filename to open it.
 4.  Click the **Copy raw contents** button (clipboard icon) to copy the script.
@@ -225,3 +208,9 @@ This method works as a quick fix but lacks version control, documentation, and r
 ------------------------------------------------------------------------
 
 These steps will set up your Windows PC for running R code efficiently. Let me know if you need modifications!
+
+------------------------------------------------------------------------
+
+## EVERYONE: 
+
+Now we will run through the tutorial "./code/phylo_map_tutorial.R".
