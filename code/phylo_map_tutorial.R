@@ -54,6 +54,24 @@ print(head(metadata))
 # -------------------------------
 # 4. Attach Metadata to the Tree and Plot the Tree
 # -------------------------------
+# Define manual color mapping for countries if not already defined.
+country_colors <- c(
+  "Argentina" = "#1f78b4",
+  "Brazil" = "#33a02c",
+  "Chile" = "#e31a1c",
+  "Colombia" = "#ff7f00",
+  "Ecuador" = "#6a3d9a",
+  "Paraguay" = "#a6cee3",
+  "Peru" = "#b2df8a",
+  "Uruguay" = "#fb9a99",
+  "Venezuela" = "#fdbf6f",
+  "Bolivia" = "#cab2d6",
+  "Guyana" = "#ffff99",
+  "Suriname" = "#b15928",
+  "French Guiana" = "#8dd3c7",
+  "Other" = "grey50"
+)
+
 tree_plot <- ggtree(beast_mcc_tree, layout = "rectangular") %<+% metadata +
   geom_tiplab(aes(label = label, color = country), size = 2) +
   scale_color_manual(values = country_colors) +
@@ -94,9 +112,22 @@ print(jump_summary)
 # -------------------------------
 # 6. Merge Jump Summary with Geographic Coordinates (from metadata)
 # -------------------------------
-location_coords <- metadata_file %>%
-  distinct(country, .keep_all = TRUE) %>%
-  select(country, latitude, longitude)
+# Choose "country" or "province"
+# choice <- "country" 
+choice <- "province"
+# for safety, comment out what you do NOT choose
+
+if (choice == "country") {
+  location_coords <- metadata_file %>%
+    distinct(country, .keep_all = TRUE) %>%
+    select(country, latitude, longitude)
+} else if (choice == "province") {
+  location_coords <- metadata_file %>%
+    distinct(country, province, .keep_all = TRUE) %>%
+    select(country, province, latitude, longitude)
+} else {
+  stop("Invalid choice. Please choose 'country' or 'province'.")
+}
 
 jump_data <- jump_summary %>%
   left_join(location_coords, by = c("origin" = "country")) %>%
@@ -116,48 +147,37 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 
 map_plot <- ggplot(data = world) +
   geom_sf(fill = "gray90", color = "black") +
-  coord_sf(xlim = c(-90, -30), ylim = c(-60, 20)) +
+  coord_sf(xlim = c(-85, -35), ylim = c(-60, 20)) +
   geom_curve(
     data = jump_data,
     aes(
-      x = origin_lon, y = origin_lat,
+      x = origin_lon,  y = origin_lat,
       xend = dest_lon, yend = dest_lat,
       size = jump_count, alpha = jump_support,
       color = origin
     ),
-    arrow = arrow(length = unit(0.2, "cm")),
-    curvature = 0.2
+    arrow = arrow(
+      length = unit(0.2, "cm"),
+      type = "closed"         # Ensure pointed arrowheads
+    ),
+    curvature = 0.3
   ) +
   scale_size_continuous(range = c(0.5, 2)) +
   scale_color_manual(values = country_colors) +
   theme_minimal() +
   labs(
-    title = "Geographic History of DENV\‑1 (Markov Jumps)",
-    x = "Longitude", y = "Latitude",
-    size = "Number of Jumps", alpha = "Support"
+    title = "Geographic History (Markov Jumps)",
+    x = "Longitude", 
+    y = "Latitude",
+    size = "Number of Jumps", 
+    alpha = "Support"
   )
-print(map_plot)
 
+print(map_plot)
 # -------------------------------
 # 8. Combined Phylogeny & Map Colored by Country (Side-by-Side)
 # -------------------------------
-# Define manual color mapping for countries if not already defined.
-country_colors <- c(
-  "Argentina" = "#1f78b4",
-  "Brazil" = "#33a02c",
-  "Chile" = "#e31a1c",
-  "Colombia" = "#ff7f00",
-  "Ecuador" = "#6a3d9a",
-  "Paraguay" = "#a6cee3",
-  "Peru" = "#b2df8a",
-  "Uruguay" = "#fb9a99",
-  "Venezuela" = "#fdbf6f",
-  "Bolivia" = "#cab2d6",
-  "Guyana" = "#ffff99",
-  "Suriname" = "#b15928",
-  "French Guiana" = "#8dd3c7",
-  "Other" = "grey50"
-)
+
 
 # Ensure location_coords is defined (from metadata_file)
 location_coords <- metadata_file %>%
@@ -166,12 +186,11 @@ location_coords <- metadata_file %>%
 
 combined_figure <- tree_plot + map_plot +
   plot_annotation(
-    title = "Phylogeographic Reconstruction of DENV‑1",
-    subtitle = "Left: Phylogenetic Tree; Right: Geographic Map"
+    title = "Phylogeographic Reconstruction of DENV1"
   )
 print(combined_figure)
 
 # EXTRA CREDIT HOMEWORK:
 # The next step is to build raw time_data from jump history using 
 # output from TaxaMarkovJumpHistoryAnalyzer found in Beast and plot as 
-# in Nyathi et al 2024 Nature Comms.
+# in Nyathi et al 2024 Nature Comms. figure 4b.
