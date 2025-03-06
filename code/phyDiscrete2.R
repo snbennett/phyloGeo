@@ -24,7 +24,7 @@ BiocManager::install("ggtree", force = TRUE)
 library(ggtree)
 
 # 2. Define file paths --------------------------------------------------------
-tree_file     <- here("data", "input", "MCC_aligned_D1_sequeneces_V3.trees.nex")
+tree_file     <- here("data", "input", "MCC_aligned_D1_sequences_V3.trees.nex")
 metadata_file <- here("data", "input", "D1_sequences_metadata_R.tsv")
 
 # 3. Load tree and metadata --------------------------------------------------
