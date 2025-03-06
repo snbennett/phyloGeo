@@ -24,8 +24,13 @@ install_if_missing <- function(packages) {
 }
 install_if_missing(required_packages)
 
+# Ensure ggtree is installed from Bioconductor
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+BiocManager::install("ggtree", force = TRUE)
+library(ggtree)
 
-# Install MarkovJumpR from GitHub if needed
+
+# Install MarkovJumpR from GitHub if needed (see homework problem)
 if (!requireNamespace("MarkovJumpR", quietly = TRUE)) {
   if (!requireNamespace("devtools", quietly = TRUE)) {
     install.packages("devtools")
