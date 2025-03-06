@@ -132,7 +132,7 @@ map_plot <- ggplot(data = world) +
   scale_color_manual(values = country_colors) +
   theme_minimal() +
   labs(
-    title = "Geographic History of DENV‑1 (Markov Jumps)",
+    title = "Geographic History of DENV\‑1 (Markov Jumps)",
     x = "Longitude", y = "Latitude",
     size = "Number of Jumps", alpha = "Support"
   )
