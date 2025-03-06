@@ -211,6 +211,6 @@ These steps will set up your Windows PC for running R code efficiently. Let me k
 
 ------------------------------------------------------------------------
 
-## EVERYONE: 
+## EVERYONE:
 
 Now we will run through the tutorial "[./code/phylo_map_tutorial.R](https://github.com/snbennett/phyloGeo/blob/main/code/phylo_map_tutorial.R)".
