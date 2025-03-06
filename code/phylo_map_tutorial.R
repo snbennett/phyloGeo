@@ -24,6 +24,7 @@ install_if_missing <- function(packages) {
 }
 install_if_missing(required_packages)
 
+
 # Install MarkovJumpR from GitHub if needed
 if (!requireNamespace("MarkovJumpR", quietly = TRUE)) {
   if (!requireNamespace("devtools", quietly = TRUE)) {
